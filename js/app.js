@@ -35,11 +35,18 @@ var Player = function() {
     this.y = 410;
     this.update = function() {
 
-    }
+    };
     this.render = function() {
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-    }
+        var isResetPlayer = checkCollision(allEnemies, player);
+        // player和Enemy碰撞后,player返回初始点
+        if(isResetPlayer){
+            this.x = 200;
+            this.y = 410;
+        }
+    };
     this.handleInput = function(e) {
+        // 控制player移动,及检测是否在可视区域
         switch (e) {
             case 'up':
                 this.y -= 85;
@@ -66,15 +73,25 @@ var Player = function() {
                 break;
         }
     }
-}
+};
 
+// 检测是否碰撞
+var checkCollision = function(enemies, player) {
+    for(var i = 0; i < enemies.length; i++){
+        var res = (enemies[i].x - player.x) * (enemies[i].x - player.x) + (enemies[i].y - player.y) * (enemies[i].y - player.y);
+        if(Math.sqrt(res) < 75){
+            return true;
+        }
+    }
+    return false;
+};
 
 
 // 现在实例化你的所有对象
 // 把所有敌人的对象都放进一个叫 allEnemies 的数组里面
 var allEnemies = [];
-for (var i = 0; i < 6; i++) {
-    var enemy = new Enemy(100 * i, 60 + 85 * (i%3));
+for (var i = 0; i < 3; i++) {
+    var enemy = new Enemy(100 * i, 60 + 85 * (i));
     allEnemies.push(enemy);
 }
 // 把玩家对象放进一个叫 player 的变量里面
