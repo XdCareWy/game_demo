@@ -1,7 +1,12 @@
+#Introduction
+这个项目来源于UDacity中前端进阶中的第一个项目,克隆版的青蛙过河.
 
-前端纳米学位街机游戏克隆项目
-===============================
+#Step
+1. ```git clone git@github.com:XdCareWy/game_demo.git```
+2. 打开浏览器运行index.html加载游戏.
+3. 通过↑↓←→四个方向键来控制player.
 
-学生应该用这个[评审标准](https://review.udacity.com/#!/rubrics/499/view))来自我检查自己提交的代码。 确认自己写的函数要是**面向对象的** -  要么是类函数（就像函数 Player 和 Enemy）要么是类的原型链上的函数比如 Enemy.prototype.checkCollisions ， 在类函数里面或者类的原型链函数里面适当的使用关键词 'this' 来引用调用该函数的对象实例。最后保证你的**readme.md**文件要写明关于如何运行和如何玩你的街机游戏的指引。
-
-关于如何开始这个项目的更详细的指导，可以查阅这份[指南](https://gdgdocs.org/document/d/1v01aScPjSWCCWQLIpFqvg3-vXLH2e8_SZQKC8jNO0Dc/pub?embedded=true)。
+#FAQ
+1. 游戏中,当player到达最顶端(水面)即闯关成功,成功后返初始点.
+2. 游戏中,当player和虫子碰撞后,返回初始点.
+3. 后期会加入血条,设置游戏难度(比如:设置虫子个数或者移动速度等等),闯关成功次数等
